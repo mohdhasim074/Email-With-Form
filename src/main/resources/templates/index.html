@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+	<head>
+		<meta charset="UTF-8">
+		<meta content="width=device-width, initial-scale=1.0" name="viewport">
+		<title>Contact Us</title>
+		<style>
+			body {
+				font-family: Arial, sans-serif;
+				background-color: #f0f0f0;
+				/* Lighter background */
+				margin: 0;
+				padding: 0;
+			}
+
+			.container {
+				max-width: 600px;
+				/* Adjust width for better responsiveness */
+				margin: 30px auto;
+				padding: 20px;
+				background-color: #fff;
+				box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+				border-radius: 8px;
+			}
+
+			h2 {
+				text-align: center;
+				color: #333;
+				margin-bottom: 15px;
+			}
+
+			.form-group {
+				margin-bottom: 10px;
+				/* Smaller spacing */
+			}
+
+			label {
+				display: block;
+				margin-bottom: 5px;
+				/* Reduced spacing */
+				color: #666;
+				font-weight: bold;
+				/* Improved label visibility */
+			}
+
+			input[type="email"],
+			input[type="text"],
+			textarea {
+				width: 100%;
+				padding: 10px;
+				border: 1px solid #ddd;
+				border-radius: 4px;
+				box-sizing: border-box;
+				margin-bottom: 6px;
+			}
+
+			input[type="file"] {
+				border: none;
+				padding: 5px;
+				/* Consistent padding */
+			}
+
+			button {
+				display: inline-block;
+				background-color: #007bff;
+				/* Blue primary button */
+				color: #fff;
+				padding: 12px 20px;
+				font-size: 16px;
+				border: none;
+				border-radius: 5px;
+				cursor: pointer;
+				transition: 0.3s;
+				/* Add smooth hover effect */
+			}
+
+			button:hover {
+				background-color: rgb(0, 0, 164);
+
+			}
+		</style>
+	</head>
+
+	<body>
+		<section class="contact-section">
+
+			<div class="container">
+				<h2> Connect With Us</h2>
+
+				<div class="contact-info">
+					<p><strong>Address:</strong> UP VOICE NEWS , Kanpur Nagar, India</p>
+					<p><strong>Phone:</strong> +9134567890</p>
+					<p><strong>Email:</strong> myjio0189@gmail.com</p>
+					<!--send message-->
+
+					<!-- Session Message Display -->
+					<!--<div th:if="${session.msg}" class="session-message">
+					<p th:text="${session.msg}"></p>
+					<th:block th:text="${#session.removeAttribute('msg')}"></th:block>
+				</div>-->
+
+
+					<!--<th:block th:if="${session.msg != null}">
+					<p class="message"> [[${session.msg}]]</p>
+					<th:block th:text="${#session.removeAttribute('msg')}"></th:block>
+				</th:block>-->
+
+				</div>
+				<!-- Email fields here -->
+
+				<form action="sendMail" method="post" enctype="multipart/form-data">
+
+					<div class="form-group">
+						<label for="recipient">Your Email:</label>
+						<input id="recipient" name="toEmail" required type="email">
+					</div>
+
+					<div class="form-group">
+						<label for="subject">Subject:</label>
+						<input id="subject" name="subject" required type="text">
+					</div>
+
+					<div class="form-group">
+						<label for="message">Message:</label>
+						<textarea id="message" name="message" required></textarea>
+					</div>
+
+					<div class="form-group">
+						<label for="attachment">Attach a File (Optional):</label>
+						<input type="file" id="attachment" name="attachment">
+					</div>
+					<input type="submit" value="Send Email">
+				</form>
+			</div>
+		</section>
+
+		<footer>
+
+			<div class="container">
+				<p>&copy; 2024 MHKhan. All rights reserved.</p>
+			</div>
+		</footer>
+
+	</body>
+
+</html>
